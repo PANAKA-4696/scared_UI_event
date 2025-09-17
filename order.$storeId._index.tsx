@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchMenu, createOrder, type MenuItem } from "../api/client";
 import Placeholder from "../components/Placeholder";
 import ErrorCard from "../components/ErrorCard";
-import { create } from "domain";
+
 
 export default function OrderPage() {
   const navigate = useNavigate();
@@ -62,8 +62,7 @@ export default function OrderPage() {
     }catch(e){
       //エラーの場合は、エラーメッセージを表示する(しなくても？？？)
       setErr(e instanceof Error ? e.message : String(e));
-    } finally{
-      setSubmitting(false);
+      setSubmitting(false);//移動
     }
   }
 
